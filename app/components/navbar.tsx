@@ -31,15 +31,15 @@ export default function Navbar() {
           </button>
           <dialog id="my_modal_2" className="modal">
             <div className="modal-box flex-nowrap">
-              <h1 className="font-semibold text-lg text-center">
+              <h1 className="font-base text-lg text-center">
                 <Link href={"/"}>Home</Link>
               </h1>
-              <h1 className="mt-4 font-semibold text-lg text-center">
+              <h1 className="mt-4 font-base text-lg text-center">
                 <Link href={"/about"}>About</Link>
               </h1>
-              <h1 className="mt-4 font-semibold text-lg text-center">
+              {/* <h1 className="mt-4 font-semibold text-lg text-center">
                 <Link href={"/movie"}>Movie</Link>
-              </h1>
+              </h1> */}
             </div>
             <form method="dialog" className="modal-backdrop">
               <button>close</button>
@@ -64,14 +64,14 @@ export default function Navbar() {
                 About
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 className={getPath === "/movie" ? "text-md font-bold" : ""}
                 href={"/movie"}
               >
                 Movie
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
