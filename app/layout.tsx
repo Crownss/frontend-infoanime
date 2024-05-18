@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
+import Metadata from "next";
 import "tailwindcss/tailwind.css";
 import Navbar from "./components/navbar";
-import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: { default: "InfoAnime", template: "%s | InfoAnime" },
@@ -40,6 +39,7 @@ export const metadata: Metadata = {
   publisher: "InfoAnime",
   referrer: "no-referrer-when-downgrade",
   authors: { name: "infoanime", url: "infoanime.site" },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

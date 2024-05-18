@@ -41,3 +41,5 @@ package-lock.json
 
 /environment
 .env
+public/*.js
+public/*.js.map
