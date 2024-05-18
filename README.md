@@ -2,29 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Env a.k.a Environment
 
-Use file in `environment/const.js`
-with this key
+Use file in `.env`
+copy from env.template with this key
 
 ```
-const BaseURL = "";
-const PathHome = "";
-const PathMovie = "";
-const PathSearch = "";
-const PathDetail = "";
-const NODE_ENV = "";
-
-export default class ENV {
-static Home = BaseURL + PathHome;
-static Movie = BaseURL + PathMovie;
-static Search = BaseURL + PathSearch;
-static Detail = BaseURL + PathDetail;
-static NODE_ENV = NODE_ENV;
-}
+NEXT_PUBLIC_BaseURL=""
+NEXT_PUBLIC_PathHome=""
 ```
-
-and you can use import with `import ENV from "../environment/const";`
-
-### i don't use .env btw 🤣
 
 # Deployed on github pages as static website
 

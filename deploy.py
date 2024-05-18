@@ -23,7 +23,7 @@ async def main(domain):
         input2 = input("commit for github pages(optional): ")
         if len(input2) == 0:
             input2 = "Deployed 🚀"
-            build = os.system('yarn deploy')
+            build = os.system('pnpm pages')
             with open("out/CNAME", "w") as f:
                 f.write(domain)
                 await asyncio.sleep(0.5)
@@ -32,7 +32,7 @@ async def main(domain):
             push2 = os.system('git add -f out;git commit -n -m \"#'+randomNum +
                               ' '+input2+'\";git push -d web gh-pages;git subtree push --prefix out web gh-pages')
             return build, push2
-        build = os.system('yarn deploy')
+        build = os.system('pnpm pages')
         with open("out/CNAME", "w") as f:
             f.write(domain)
             await asyncio.sleep(0.5)
@@ -50,7 +50,7 @@ async def main(domain):
             input2 = "Deployed 🚀"
             push3 = os.system('git add .;git commit -m \"#' +
                               randomNum+' '+input1+'\";git push origin master')
-            build = os.system('yarn deploy')
+            build = os.system('pnpm pages')
             with open("out/CNAME", "w") as f:
                 f.write(domain)
                 await asyncio.sleep(0.5)
@@ -61,7 +61,7 @@ async def main(domain):
             return push3, build, push4
         push3 = os.system('git add .;git commit -m \"#' +
                           randomNum+' '+input1+'\";git push -d web gh-pages;git push origin master')
-        build = os.system('yarn master')
+        build = os.system('pnpm pages')
         with open("out/CNAME", "w") as f:
             f.write(domain)
             await asyncio.sleep(0.5)

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build;touch out/.nojekyll"
+    "pages": "next build;touch out/.nojekyll"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
