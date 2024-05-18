@@ -1,7 +1,7 @@
-import Metadata from "next";
+import type { Metadata } from "next";
 import Page from "./about";
-export const metadata: typeof Metadata = {
-  title: "About",
+export const metadata: Metadata = {
+  title: { default: "InfoAnime", template: "About | InfoAnime" },
 };
 
 export default function About({ params }: { params: { slug: string } }) {

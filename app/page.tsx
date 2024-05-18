@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Cards from "./components/card";
-import { Root, Data, Pagination } from "./components/response";
+import { Root } from "./components/response";
 import { pageview } from "@/ga";
 
 export default function Home({ params }: { params: { slug: string } }) {

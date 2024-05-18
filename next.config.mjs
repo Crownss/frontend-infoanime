@@ -6,7 +6,7 @@ const withPWA = withPWAInit({
 });
 
 export default withPWA({
-  reactStrictMode: true,
+  // reactStrictMode: true,
   output: "export",
   images: {
     unoptimized: true,
