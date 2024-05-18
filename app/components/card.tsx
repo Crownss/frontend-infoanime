@@ -41,24 +41,6 @@ export default function Cards(props: { data: Data[] }) {
                   </div>
                   <div
                     className={
-                      result.aired?.string.includes("Not available")
-                        ? "hidden"
-                        : "card-title font-normal text-center tooltip text-base select-none"
-                    }
-                  >
-                    {result.aired?.string}
-                  </div>
-                  <div
-                    className={
-                      result.rating
-                        ? "card-title font-normal text-center tooltip text-base select-none"
-                        : "hidden"
-                    }
-                  >
-                    Rating: {result.rating}
-                  </div>
-                  <div
-                    className={
                       result.rating
                         ? "card-title font-normal text-center tooltip text-base select-none"
                         : "hidden"
@@ -92,7 +74,7 @@ export default function Cards(props: { data: Data[] }) {
                   </div>
                   <div className="mt-5"></div>
                   <p
-                    className="text-ellipsis overflow-hidden text-left indent-5 hyphens-auto"
+                    className="text-wrap text-left indent-5 hyphens-auto text-xs lg:text-base"
                     lang="en"
                   >
                     {result.synopsis}
