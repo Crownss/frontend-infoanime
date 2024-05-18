@@ -1,181 +1,105 @@
-export type TheProps = Root2[];
-
-export interface Root2 {
-  mal_id: number;
-  url: string;
-  images: Images;
-  trailer: Trailer;
-  approved: boolean;
-  titles: Title[];
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  title_synonyms: any[];
-  type: string;
-  source: string;
-  episodes: any;
-  status: string;
-  airing: boolean;
-  aired: Aired;
-  duration: string;
-  rating: string;
-  score: any;
-  scored_by: any;
-  rank: any;
-  popularity: number;
-  members: number;
-  favorites: number;
-  synopsis: string;
-  background: any;
-  season: string;
-  year: number;
-  broadcast: Broadcast;
-  producers: Producer[];
-  licensors: any[];
-  studios: Studio[];
-  genres: Genre[];
-  explicit_genres: any[];
-  themes: Theme[];
-  demographics: Demographic[];
-}
-
-export interface Images {
-  jpg: Jpg;
-  webp: Webp;
-}
-
-export interface Jpg {
-  image_url: string;
-  small_image_url: string;
-  large_image_url: string;
-}
-
-export interface Webp {
-  image_url: string;
-  small_image_url: string;
-  large_image_url: string;
-}
-
-export interface Trailer {
-  youtube_id: string;
-  url: string;
-  embed_url: string;
-  images: Images2;
-}
-
-export interface Images2 {
-  image_url: string;
-  small_image_url: string;
-  medium_image_url: string;
-  large_image_url: string;
-  maximum_image_url: string;
-}
-
-export interface Title {
-  type: string;
-  title: string;
-}
-
-export interface Aired {
-  from: string;
-  to: any;
-  prop: Prop;
-  string: string;
-}
-
-export interface Prop {
-  from: From;
-  to: To;
-}
-
-export interface From {
-  day: number;
-  month: number;
-  year: number;
-}
-
-export interface To {
-  day: any;
-  month: any;
-  year: any;
-}
-
-export interface Broadcast {
-  day: string;
-  time: string;
-  timezone: string;
-  string: string;
-}
-
-export interface Producer {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-export interface Studio {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-export interface Genre {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-export interface Theme {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-export interface Demographic {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
-
-export default function Cards() {
+import Link from "next/link";
+import { Data } from "./response";
+import Image from "next/image";
+export default function Cards(props: { data: Data[] }) {
   return (
     <>
-      <div className="flex items-center h-full">
+      <div
+        className={
+          props.data.length > 1 ? "flex items-center h-full" : "hidden"
+        }
+      >
         <div className="mx-auto">
           <div className="h-screen carousel carousel-vertical rounded-box shadow-2xl">
-            <div className="carousel-item h-full card bg-inherit image-full">
-              <figure>
-                <img src="https://cdn.myanimelist.net/images/anime/1700/134791l.webp" />
-              </figure>
-              <div className="card-body">
-                <div className="card-title font-bold text-center tooltip text-2xl select-none">
-                  Shoes!
+            {props.data.map((result) => (
+              <div
+                className="carousel-item h-full card bg-inherit image-full"
+                key={result.mal_id}
+              >
+                <figure>
+                  <Image
+                    src={result.images?.webp.large_image_url || "/alice.png"}
+                    alt={result.title_english || ""}
+                    fill={true}
+                  />
+                </figure>
+                <div className="card-body">
+                  <div className="card-title font-bold text-center tooltip text-2xl select-none">
+                    {result.trailer?.url === null ? (
+                      <>
+                        {result.title_english || ""} (
+                        {result.title_japanese || ""})
+                      </>
+                    ) : (
+                      <>
+                        <Link href={result.trailer?.url || ""} target="_blank">
+                          {result.title_english || ""} (
+                          {result.title_japanese || ""})
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                  <div
+                    className={
+                      result.aired?.string.includes("Not available")
+                        ? "hidden"
+                        : "card-title font-normal text-center tooltip text-base select-none"
+                    }
+                  >
+                    {result.aired?.string}
+                  </div>
+                  <div
+                    className={
+                      result.rating
+                        ? "card-title font-normal text-center tooltip text-base select-none"
+                        : "hidden"
+                    }
+                  >
+                    Rating: {result.rating}
+                  </div>
+                  <div
+                    className={
+                      result.rating
+                        ? "card-title font-normal text-center tooltip text-base select-none"
+                        : "hidden"
+                    }
+                  >
+                    Source: {result.source}
+                  </div>
+                  <div
+                    className={
+                      result.genres?.length
+                        ? "card-title font-normal text-center tooltip text-base select-none"
+                        : "hidden"
+                    }
+                  >
+                    Genre&apos;s:{" "}
+                    {result.genres?.map((genre) => (
+                      <>{genre.name} </>
+                    ))}
+                  </div>
+                  <div
+                    className={
+                      result.studios?.length
+                        ? "card-title font-normal text-center tooltip text-base select-none"
+                        : "hidden"
+                    }
+                  >
+                    Studio&apos;s:{" "}
+                    {result.studios?.map((studio) => (
+                      <>{studio.name} </>
+                    ))}
+                  </div>
+                  <div className="mt-5"></div>
+                  <p
+                    className="text-ellipsis overflow-hidden text-left indent-5 hyphens-auto"
+                    lang="en"
+                  >
+                    {result.synopsis}
+                  </p>
                 </div>
-                <div className="mt-5"></div>
-                <p className="text-ellipsis overflow-hidden text-left indent-5">
-                  If a dog chews shoes whose shoes does he choose?
-                </p>
               </div>
-            </div>
-            <div className="carousel-item h-full card bg-inherit image-full">
-              <figure>
-                <img src="https://cdn.myanimelist.net/images/anime/1370/140362l.webp" />
-              </figure>
-              <div className="card-body">
-                <div className="card-title font-bold text-center tooltip text-2xl select-none">
-                  Shoes!
-                </div>
-                <div className="mt-5"></div>
-                <p className="text-ellipsis overflow-hidden text-left indent-5">
-                  If a dog chews shoes whose shoes does he choose?
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ export default function About() {
               className="btn btn-outline font-bold text-center"
               target="_blank"
               rel="noreferrer"
-              href="https://instagr.am/britoniers"
+              href="https://instagr.am/brethoniere"
             >
               wanna ask something ? <FontAwesomeIcon icon={faInstagram} />
             </Link>
