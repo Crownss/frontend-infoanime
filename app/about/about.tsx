@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import { useEffect } from "react";
 import { pageview } from "@/ga";
+import { usePathname } from "next/navigation";
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page() {
+  const pathname = usePathname();
   useEffect(() => {
-    pageview(params.slug);
+    pageview(pathname);
   });
   return (
     <>

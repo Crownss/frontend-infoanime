@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import Cards from "./components/card";
 import { Root } from "./components/response";
 import { pageview } from "@/ga";
+import { usePathname } from "next/navigation";
 
-export default function Home({ params }: { params: { slug: string } }) {
+export default function Home() {
+  const pathname = usePathname();
   const defaultRootValue: Root = {
     pagination: {
       last_visible_page: 1,
@@ -25,7 +27,7 @@ export default function Home({ params }: { params: { slug: string } }) {
 
   useEffect(() => {
     fetchfunc(pageSize, 1);
-    pageview(params.slug);
+    pageview(pathname);
   }, []);
 
   const fetchfunc = async (size: number, page: number) => {
