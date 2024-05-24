@@ -24,7 +24,7 @@ const config: Config = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "dracula",
+    darkTheme: "dim",
   },
 };
 export default config;

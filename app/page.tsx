@@ -55,7 +55,7 @@ export default function Home() {
   };
   return (
     <>
-      <div className="grid mt-3">
+      <div className="grid mt-5">
         <div className="join flex justify-center">
           <button
             className="join-item btn btn-ghost"
@@ -72,7 +72,7 @@ export default function Home() {
             Next
           </button>
         </div>
-        <div className="mt-3"></div>
+        <div className="mt-5"></div>
         <div className="grid-cols-1">
           <Cards data={result.data} />
         </div>

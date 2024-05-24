@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "tailwindcss/tailwind.css";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: { default: "InfoAnime", template: "%s | InfoAnime" },
@@ -50,9 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="container mx-auto">
-        <Navbar />
         {/* <div className="mt-20"></div> */}
-        <div className="">{children}</div>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

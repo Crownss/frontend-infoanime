@@ -9,15 +9,14 @@ export default function Navbar() {
   const getPath = usePathname();
   return (
     <>
-      <div className="navbar bg-base-100 shadow-xl rounded-2xl">
+      <div className="navbar bg-base-100 shadow-2xl rounded-3xl">
         <div className="navbar-start">
-          <Link className="btn btn-ghost text-xl rounded-lg" href={"/"}>
-            <Image src={"/alice.png"} width={50} height={50} alt="tanahku" />
+          <Link className="btn btn-ghost text-xl rounded-3xl" href={"/"}>
+            <Image src={"/alice.png"} width={50} height={50} alt="alice" />
           </Link>
         </div>
         <div className="navbar-end m-5 lg:hidden">
           <button
-            className=""
             onClick={() => {
               const modal = document.getElementById(
                 "my_modal_2"
