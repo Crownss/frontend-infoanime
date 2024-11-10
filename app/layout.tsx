@@ -54,7 +54,7 @@ export default function RootLayout({
         {/* <div className="mt-20"></div> */}
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

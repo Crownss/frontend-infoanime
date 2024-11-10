@@ -38,8 +38,10 @@ next-env.d.ts
 pnpm-lock.yaml
 yarn.lock
 package-lock.json
+deno.lock
 
 /environment
+src-tauri
 .env
 public/*.js
 public/*.js.map

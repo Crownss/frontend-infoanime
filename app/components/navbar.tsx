@@ -1,12 +1,13 @@
 "use client";
+import { faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
   const getPath = usePathname();
+  let getYear = new Date();
   return (
     <>
       <div className="navbar bg-base-100 shadow-2xl rounded-3xl">
@@ -15,6 +16,7 @@ export default function Navbar() {
             <Image src={"/alice.png"} width={50} height={50} alt="alice" />
           </Link>
         </div>
+        <div className="text-balance lg:text-nowrap select-none">Copyright © {getYear.getFullYear()} - All right reserved</div>
         <div className="navbar-end m-5 lg:hidden">
           <button
             onClick={() => {
